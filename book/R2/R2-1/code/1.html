@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+
+    <script>
+        let a = {
+            propA: 'a-prop',
+            propB: function(){}
+        }
+        a.__proto__ = { // 原型链属性
+            protoA: 'a-prop-proto'
+        }
+        Object.defineProperty(a, 'propC', {
+            value: 'prop-c',
+            enumerable: false,      // 不可枚举, for in 无法遍历该属性
+            configurable: true,
+            writable: true
+        })
+
+        // 可以遍历本身和原型链上的属性
+        for (let prop in a) {
+            console.log(`${prop}属性是否是非原型链属性：`, a.hasOwnProperty(prop));
+        }
+
+        console.log(Object.keys(a));
+
+        const arr = ['a', 'b', 'c'];
+        for (let i in arr) {
+            console.log('arr props: ', i);
+        }
+        for (let j of arr) {
+            console.log('arr values:', j);
+        }
+
+    </script>
+</body>
+</html>
