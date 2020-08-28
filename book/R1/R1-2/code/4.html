@@ -1,0 +1,14 @@
+<script>
+const obj1 = {
+    name: 'Mango',
+    getName () {
+        return this.name;
+    }
+}
+const obj2 = {
+    name: 'Mango2'
+}
+console.log(obj1.getName());    // Mango
+console.log(obj1.getName.call(obj2));       // Mango2
+
+</script>

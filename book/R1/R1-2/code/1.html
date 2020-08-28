@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        const person = {
+            userName: 'Mango',
+            sayName () {
+                console.log(this);
+                console.log(this.userName);
+            }
+        }
+
+        person.sayName();       // Mango
+
+        let sayName = person.sayName;    
+        sayName();              // undefined 此时 this 指向全局对象
+
+        let sayName2 = (function (func, target) {
+            return function () {
+                return func.apply(target, arguments);
+            } 
+        })(person.sayName, person);
+        sayName2();
+
+        function methodAlias (func, target) {
+            return function () {
+                return func.apply(target, arguments);
+            }
+        }
+
+        let sayName3 = methodAlias(person.sayName, person);
+        sayName3();
+        
+
+        // let queryElem = document.querySelector;
+        // queryElem('#id');   // Error
+
+        let queryElem = methodAlias(document.querySelector, document);
+        queryElem('#id');
+
+        // bind
+        let sayName4 = person.sayName.bind(person);
+        sayName4();
+
+    </script>
+</body>
+</html>

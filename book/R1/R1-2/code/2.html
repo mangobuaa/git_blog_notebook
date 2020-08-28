@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div id="myDiv"> 我是一个DIV </div>
+
+    <script>
+        const divDom = document.querySelector('#myDiv');
+
+        divDom.addEventListener('click', function () {
+            // this 指向 divDom
+            console.log('匿名函数的 this: ', this);
+            let callback = function () {
+                // this 指向 window
+                console.log('匿名函数中callback this: ', this);
+            }
+            let callback2 = () => {
+                // this 指向 divDom
+                console.log('匿名函数中callback(箭头函数) this: ', this);
+            }
+            callback();
+            callback2();
+        })
+        divDom.addEventListener('click', () => {
+            // this 指向 window
+            console.log('箭头函数的 this: ', this);
+            let callback = function () {
+                // this 指向 window
+                console.log('箭头函数中callback this: ', this);
+            }
+            callback();
+        })
+
+        const obj = {
+            addEvent () {
+                divDom.addEventListener('click', () => {
+                    // this 指向 obj 对象
+                    console.log('在对象内部箭头函数的 this: ', this);
+                    let callback = function () {
+                        // this 指向 window
+                        console.log('对象内部匿名函数中callback this: ', this);
+                    }
+                    callback();
+                })
+            }
+        }
+        obj.addEvent();
+
+    </script>
+    
+</body>
+</html>

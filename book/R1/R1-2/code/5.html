@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        window.age = 200;
+        const obj = {
+            age: 28,
+            func2: function () {
+                console.log('func2: ', this.age);
+            }
+        }
+        const func1 = function () {
+            console.log('func1: ', this.age);
+        }
+        func1.apply(null);  // 200 this指向window
+        func1.apply(obj);   // 28 this指向 obj
+
+        obj.func2.apply(null);  // 200 this 指向 window
+        obj.func2.apply(obj);   // 28 this指向obj
+
+    </script>
+</body>
+</html>
