@@ -1,8 +1,6 @@
 # Mango 的前端成长之路
 
-[个人博客地址](https://mangobuaa.github.io/)
-
-[Segmentfault 专栏地址](https://segmentfault.com/blog/mango)
+语雀地址：
 
 ## 前端输入分类
 1. 专业书籍
