@@ -27,6 +27,7 @@
 - 【1】[JavaScript 设计模式与开发实践](https://www.ituring.com.cn/book/1632/)
 - 【2】[JavaScript 语言精粹](https://book.douban.com/subject/3590768/)
 - 【3】[JavaScript 高级程序设计 第四版 英文](http://www.java1234.com/a/javabook/webbase/2019/1022/14983.html)
+- 【4】Build Your Own AngularJs
 
 ## 视频学习
 添加中...
